@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzManagedDiskInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzManagedDiskInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Virtual Machines' Managed Disk information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Virtual Machines' Managed Disk information. Consolidating information from various sources in to one output, such as LinkedVM, if it's Orphaned, Operating System information and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzManagedDiskInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.ManagedDisk</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzManagedDiskInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzManagedDiskInfo</dev:code>
+        <dev:remarks>
+          <maml:para>DiskName                  ResourceGroupName       State          LinkedVM         DiskSizeGB Orphaned --------                  -----------------       -----          --------         ---------- -------- fs03_Cloned_E_L           RG-PRD-PSP-APP          Attached       vmPSPweuprdfs03  4096       False vmpspweuprdah03-c         RG-PRD-PSP-APP          Attached       vmPSPweuprdah03  127        False vmpspweuprdah03-e         RG-PRD-PSP-APP          Attached       vmPSPweuprdah03  512        False vmpspweuprddp01-c         RG-PRD-PSP-APP          Attached       vmPSPweuprddp01  127        False vmpspweuprddp01-e         RG-PRD-PSP-APP          Attached       vmPSPweuprddp01  64         False vmpspweuprdep01_e         RG-PRD-PSP-APP          Attached       vmPSPweuprdep01  128        False goldimage_disk1           RG-PRD-PSP-RDS          Reserved       goldimage        128        False vmpspimage01_disk1        RG-PRD-PSP-RDS          Unattached                      128        True</maml:para>
+          <maml:para>Gets all Managed VM disks for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzManagedDiskInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>DiskName              : vmpspweuprdmg03_OsDisk_1 ResourceGroupName     : RG-PRD-PSP-APP State                 : Attached DiskSizeGB            : 127 LinkedVM              : vmpspweuprdmg03 LinkedVMResourceGroup : RG-PRD-PSP-APP Orphaned              : False CreateOption          : FromImage OSDisk                : True OSFamily              : Windows OSOffer               : WindowsServer OSSku                 : 2019-Datacenter SourceDisk            : Encryption            : EncryptionAtRestWithPlatformKey IopsRW                : 500 MpsRW                 : 100 HyperVGen             : V1 TagsAvailable         : False Tags                  : env=demo;createdby=ARM Location              : westeurope Subscription          : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid          : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime        : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Managed VM disks for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzNicInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzNicInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Network Interface information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Network Interface information. Consolidating information from various sources in to one output, such as LinkedVM, if it's Orphaned, VNet and Subnet information and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzNicInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.Nic</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzNicInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzNicInfo</dev:code>
+        <dev:remarks>
+          <maml:para>NicName             ResourceGroupName               LinkedVM        Orphaned VNet        Subnet -------             -----------------               --------         -------- ----        ------ vmpspweuprdah01-nic RG-PRD-PSP-APP                  vmpspweuprdah01  False    vnPSPWEUPRD SNWEUPRDApplication vmpspweuprdah02-nic RG-PRD-PSP-APP                  vmpspweuprdah02  False    vnPSPWEUPRD SNWEUPRDApplication vmpspweuprdmg02554  RG-PRD-PSP-APP                                   True     vnPSPWEUPRD SNWEUPRDApplication vmpspweuprdmg03624  RG-PRD-PSP-APP                  vmpspweuprdmg03  False    vnPSPWEUPRD SNWEUPRDApplication</maml:para>
+          <maml:para>Gets all Network Interfaces for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzNicInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>NicName                   : vmpspweuprdmgm-nic1 ResourceGroupName         : RG-PRD-PSP-MGM LinkedVM                  : vmpspweuprdmgm LinkedVMResourceGroup     : rg-weu-prd-psp-mgm Orphaned                  : False NicDnsServer              : Azure Managed DNS NsgOnNic                  : False NicNsg                    : NicNsgResourceGroup       : VNet                      : vnPSPWEUPRD VnetDnsServer             : 10.31.4.4;10.31.4.5 VNetResourceGroup         : RG-PRD-PSP-NET Subnet                    : SNWEUPRDFrontEndDMZ NsgOnSubnet               : True SubnetNsg                 : NSG-FrontEndDMZ SubnetNsgResourceGroup    : RG-PRD-PSP-NET PublicIpAddress           : 12.34.56.78 PrivateIPAddress          : 10.31.11.4 PrivateIPAllocationMethod : Static TagsAvailable             : False Tags                      : env=demo;createdby=ARM Location                  : westeurope Subscription              : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid              : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime            : 2021-04-19 13:37</maml:para>
+          <maml:para>Gets all Network Interfaces for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzPeeringInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzPeeringInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Virtual Network Peering information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Virtual Network Peering information. Consolidating information from various sources in to one output, such as Local and Remote VNet, if it's Orphaned, Peering state and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzPeeringInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.Peering</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzPeeringInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 16-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzPeeringInfo</dev:code>
+        <dev:remarks>
+          <maml:para>PeeringName         ResourceGroupName  PeeringState LocalVNet   RemoteVNet             Orphaned -----------         -----------------  ------------ ---------   ----------             -------- vNetPeerToFortigate RG-PRD-PSP-NET      Initiated   vnPSPWEUPRD FortigateProtectedVNet True</maml:para>
+          <maml:para>Gets all Virtual Network Peering for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzPeeringInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>PeeringName               : vNetPeerToFortigate PeeringState              : Initiated LocalVNet                 : vnPSPWEUPRD LocalVNetResourceGroup    : RG-PRD-PSP-NET RemoteVNet                : FortigateProtectedVNet RemoteVNetResourceGroup   : RG-PRD-PSP-VPN RemoteVNetAddressSpace    : 10.0.0.0/16 Orphaned                  : True UseRemoteGateways         : False RemoteGateways            : AllowGatewayTransit       : False AllowVirtualNetworkAccess : True AllowForwardedTraffic     : True Location                  : westeurope Subscription              : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid              : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime            : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Virtual Network Peering for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzPublicIpInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzPublicIpInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Public IP Address object information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Public IP Address object information. Consolidating information from various sources in to one output, such as IpAddress, if it's Orphaned, Allocation method and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzPublicIpInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.PublicIp</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzPublicIpInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzPublicIpInfo</dev:code>
+        <dev:remarks>
+          <maml:para>PublicIpName        ResourceGroupName      IpAddress     Orphaned LinkedResourceName  IpAllocationMethod ------------        -----------------      ---------     -------- ------------------  ------------------ vmpspweuprddm03-pip RG-PRD-PSP-APP         12.34.56.78   False    vmpspweuprddm03-nic Static vmpspweuprdim02_pip RG-PRD-PSP-APP         12.34.56.79   False    vmpspweuprdim02986  Static vmpspweuprdpx01-pip RG-PRD-PSP-APP         12.34.56.80   False    vmpspweuprdpx0187   Static utvb3bgdh3ebwIP     RG-PRD-PSP-MER         12.34.56.81   False    vmpspweuprdmer01Nic Dynamic vmpspweuprdmg02-pip RG-PRD-PSP-MGM         12.34.56.82   False    vmpspweuprdmg02-nic Static</maml:para>
+          <maml:para>Gets all Public IP Address objects for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzPublicIpInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>PublicIpName         : AG_PSP_PRD_PIP ResourceGroupName    : RG-PRD-PSP-NET IpAddress            : 12.34.56.78 Orphaned             : False LinkedResourceName   : ag_psp_weu_prd01 LinkedResourceConfig : appGatewayFrontendIP LinkedResourceType   : applicationGateways LinkedResourceRG     : RG-PRD-PSP-NET IpAllocationMethod   : Dynamic DomainNameLabel      : FQDN                 : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k.cloudapp.net ReverseFQDN          : Sku                  : Basic TagsAvailable        : False Tags                 : env=demo;createdby=ARM Location             : westeurope Subscription         : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid         : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime       : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Public IP Address objects for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzResourceInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzResourceInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Resource information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Azure Resource information. Consolidating information from various sources in to one output, such as ResourceType, if it's an Azure RM or Classic object and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzResourceInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.Resource</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzResourceInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzResourceInfo</dev:code>
+        <dev:remarks>
+          <maml:para>ResourceName                    ResourceGroupName        ResourceType                                 AzureClassic Location ------------                    -----------------        ------------                                 ------------ -------- DefaultWorkspace-WEU            DefaultResourceGroup-WEU Microsoft.OperationalInsights/workspaces     False        westeurope Security(DefaultWorkspace-WEU)  defaultresourcegroup-weu Microsoft.OperationsManagement/solutions     False        westeurope NetworkWatcher_westeurope       NetworkWatcherRG         Microsoft.Network/networkWatchers            False        westeurope PSP-Automation                  PSP-Automation           Microsoft.Automation/automationAccounts      False        westeurope Alert ServiceDesk               PSP-LogAnalytics         Microsoft.Insights/actiongroups              False        global</maml:para>
+          <maml:para>Gets all Azure Resource objects for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzResourceInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>ResourceName      : MyVNET ResourceGroupName : PSP-Networking ResourceType      : Microsoft.Network/virtualNetworks AzureClassic      : False Location          : westeurope Subscription      : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime    : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Azure Resource objects for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzStorageAccountInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzStorageAccountInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Storage Account information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Storage Account information. Consolidating information from various sources in to one output, such as ResourceType, if it's an Azure RM or Classic object and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzStorageAccountInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.StorageAccount</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzStorageAccountInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzStorageAccountInfo</dev:code>
+        <dev:remarks>
+          <maml:para>StorageAccountName    ResourceGroupName      Kind      Replication  EnableHttpsTrafficOnly StaticWebsites ------------------    -----------------      ----      -----------  ---------------------- -------------- pspcloudshell         PSP-CoreInfrastructure StorageV2 Standard_LRS True                   False pspeventlogstorage001 PSP-LogAnalytics       StorageV2 Standard_LRS True                   False pspsynology           PSP-CoreInfrastructure StorageV2 Standard_LRS True                   False pspvmsstorage001      PSP-VMs                StorageV2 Standard_LRS True                   False pspwebsite            PSP-Website            StorageV2 Standard_LRS True                   True</maml:para>
+          <maml:para>Gets all Storage Accounts for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzStorageAccountInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>StorageAccountName     : pspwebsite ResourceGroupName      : PSP-Website Kind                   : StorageV2 Replication            : Standard_LRS AccessTier             : Hot EnableHttpsTrafficOnly : True EncryptedBlob          : True EncryptedFile          : True ContainersUsed         : True PublicContainers       : False PublicContainersInfo   : StaticWebsites         : True FileSharesUsed         : False LargeFileShares        : True TagsAvailable          : False Tags                   : env=demo;createdby=ARM Location               : westeurope Subscription           : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime         : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Storage Accounts for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzSubnetInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzSubnetInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Subnet information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Subnet information. Consolidating information from various sources in to one output, such as VNet, DNS Server, NSG and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzSubnetInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.Subnet</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzSubnetInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzSubnetInfo</dev:code>
+        <dev:remarks>
+          <maml:para>SubnetName         ResourceGroupName VNet    AddressPrefix NsgOnSubnet ----------         ----------------- ----    ------------- ----------- default            PSP-Networking    MyVNET  10.2.0.0/24   False Backend            PSP-Networking    VM-VNet 10.1.0.0/24   True azurebastionsubnet PSP-Networking    VM-VNet 10.1.1.0/27   False</maml:para>
+          <maml:para>Gets all Subnets for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzSubnetInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>SubnetName              : Backend VNet                    : VM-VNet VNetResourceGroup       : PSP-Networking VnetDnsServer           : Azure Managed DNS AddressPrefix           : 10.1.0.0/24 NsgOnSubnet             : True SubnetNsg               : PSP-NSG_Backend SubnetNsgResourceGroup  : PSP-Networking RouteTableEnabled       : False RouteTableName          : RouteTableResourceGroup : ServiceEndpoints        : PrivateEndpoints        : Location                : westeurope Subscription            : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid            : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime          : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Subnets for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzUnmanagedDiskInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzUnmanagedDiskInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Unmanaged Disk (VHD) information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Virtual Machines' Unmanaged Disk (VHD) information. Consolidating information from various sources in to one output, such as Storage Account, if it's Orphaned, Snapshot information and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzUnmanagedDiskInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.UnmanagedDisk</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzUnmanagedDiskInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzUnmanagedDiskInfo</dev:code>
+        <dev:remarks>
+          <maml:para>VhdName                   ResourceGroupName   StorageAccount           DiskSizeGB Orphaned IsSnapshot -------                   -----------------   --------------           ---------- -------- ---------- vmpspweuprdah02-e.vhd     rg-prd-psp-data     salrspspweuprddatadisk01 1023       False    True ANSVHR203-disk2.vhd       rg-prd-psp-data     salrspspweuprdosdisk01   75         False    True ANSVHR203-disk2.vhd       rg-prd-psp-data     salrspspweuprdosdisk01   75         False    False vmpspweuprdah02-c.vhd     rg-prd-psp-data     salrspspweuprdosdisk01   127        False    True</maml:para>
+          <maml:para>Gets all Unmanaged Disks (VHD) for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzUnmanagedDiskInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>VhdName           : vmpspweuprdrhtp-c.vhd ResourceGroupName : rg-prd-psp-data StorageAccount    : saplrspspweuprdrds01 LeaseStatus       : Unspecified Orphaned          : False IsSnapshot        : True SnapshotTime      : 2021-04-19 00-57 DiskSizeGB        : 127 LastModified      : 4/18/2021 10:57:46 PM +00:00 Created           : 12/12/2019 9:08:33 AM +00:00 IsDeleted         : False Location          : westeurope Subscription      : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime    : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Unmanaged Disks (VHD) for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzVmInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzVmInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Virtual Machines information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Virtual Machines information. Consolidating information from various sources in to one output, such as PowerState, IpAddress, Operating System information and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzVmInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.VirtualMachine</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzVmInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzVmInfo</dev:code>
+        <dev:remarks>
+          <maml:para>VMName           ResourceGroupName     Size             PowerState             HighlyAvailable PrivateIp ------           -----------------     ----             ----------             --------------- --------- vmpspweuprdah01  RG-PRD-PSP-APP        Standard_A2m_v2  VM deallocated         True            10.0.1.5 vmpspweuprdah02  RG-PRD-PSP-APP        Standard_A2m_v2  Provisioning succeeded False           10.0.1.6 vmpspweuprdah03  RG-PRD-PSP-APP        Standard_D4s_v3  VM running             True            10.0.1.7</maml:para>
+          <maml:para>Gets all Virtual Machines for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzVmInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>VMName                       : vmpspweuprdsq03 ResourceGroupName            : RG-PRD-PSP-SQL Size                         : Standard_L8s PowerState                   : VM running HighlyAvailable              : True AvailabilitySetEnabled       : True AvailabilitySetName          : ASPSPWEUPRDSQL AvailabilitySetResourceGroup : RG-PRD-PSP-SQL ScaleSetEnabled              : False ScaleSetName                 : ScaleSetResourceGroup        : ManagedDisks                 : True OSStorageType                : Premium_LRS OSDiskStorageAccount         : DataDisks                    : 4 NicName                      : vmpspweuprdsq03-nic NicResourceGroup             : RG-PRD-PSP-SQL NicDnsServer                 : Azure Managed DNS NsgOnNic                     : False NicNsg                       : NicNsgResourceGroup          : VNet                         : vnPSPWEUPRD VnetDnsServer                : 10.31.4.4;10.31.4.5 VNetResourceGroup            : RG-PRD-PSP-NET Subnet                       : SNWEUPRDData NsgOnSubnet                  : True SubnetNsg                    : NSG-Data SubnetNsgResourceGroup       : RG-PRD-PSP-NET PublicIpAddress              : PrivateIPAddress             : 10.31.2.13 PrivateIPAllocationMethod    : Static BootDiagnostics              : True BootDiagnosticsStorage       : salrspspweuprdcwfs HybridBenefit                : False OperatingSystem              : WindowsServer OSSku                        : 2016-Datacenter OSVersion                    : 2016.127.20170406 TagsAvailable                : False Tags                         : env=demo;createdby=ARM Location                     : westeurope Subscription                 : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k VmId                         : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime               : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Virtual Machines for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzVmScaleSetInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzVmScaleSetInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Scale Set Virtual Machines information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Scale Set Virtual Machines information. Consolidating information from various sources in to one output, such as PowerState, IpAddress, Operating System information and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzVmScaleSetInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.VirtualMachine</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzVmScaleSetInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzVmScaleSetInfo</dev:code>
+        <dev:remarks>
+          <maml:para>VMName           ResourceGroupName     Size             PowerState             HighlyAvailable PrivateIp ------           -----------------     ----             ----------             --------------- --------- vmpspweuprdah01  RG-PRD-PSP-APP        Standard_A2m_v2  VM deallocated         True            10.0.1.5 vmpspweuprdah02  RG-PRD-PSP-APP        Standard_A2m_v2  Provisioning succeeded False           10.0.1.6 vmpspweuprdah03  RG-PRD-PSP-APP        Standard_D4s_v3  VM running             True            10.0.1.7</maml:para>
+          <maml:para>Gets all Scale Set Virtual Machines for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzVmScaleSetInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>VMName                       : vmpspweuprdmgm ResourceGroupName            : RG-PRD-PSP-MGM Size                         : Standard_B4ms PowerState                   : VM deallocated HighlyAvailable              : True AvailabilitySetEnabled       : False AvailabilitySetName          : AvailabilitySetResourceGroup : ScaleSetEnabled              : True ScaleSetName                 : pspscaleset001 ScaleSetResourceGroup        : RG-PRD-PSP-VMSS ManagedDisks                 : False OSStorageType                : Unknown OSDiskStorageAccount         : salrspspweuprdosdisk01 DataDisks                    : 1 NicName                      : vmpspweuprdmgm-nic1 NicResourceGroup             : RG-PRD-PSP-MGM NicDnsServer                 : Azure Managed DNS NsgOnNic                     : False NicNsg                       : NicNsgResourceGroup          : VNet                         : vnPSPWEUPRD VnetDnsServer                : 10.31.4.4;10.31.4.5 VNetResourceGroup            : RG-PRD-PSP-NET Subnet                       : SNWEUPRDFrontEndDMZ NsgOnSubnet                  : True SubnetNsg                    : NSG-FrontEndDMZ SubnetNsgResourceGroup       : RG-PRD-PSP-NET PublicIpAddress              : 13.95.23.251 PrivateIPAddress             : 10.31.11.4 PrivateIPAllocationMethod    : Static BootDiagnostics              : True BootDiagnosticsStorage       : salrspspweuprddiag HybridBenefit                : False OperatingSystem              : WindowsServer OSSku                        : 2016-Datacenter OSVersion                    : 2016.127.20170406 TagsAvailable                : True Tags                         : env=demo;createdby=ARM Location                     : westeurope Subscription                 : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k VmId                         : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime               : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Scale Set Virtual Machines for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PspAzVnetInfo</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PspAzVnetInfo</command:noun>
+      <maml:description>
+        <maml:para>Gets Azure Virtual Network information</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Provides an easy overview of Virtual Network information. Consolidating information from various sources in to one output, such as Subnets, Peering, if it's DDOS protected and more</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PspAzVnetInfo</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>PSP.Azure.Inventory.Vnet</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Name: Get-PspAzVnetInfo.ps1 Author: Robert Prüst Module: PSP-AzureInventory DateCreated: 12-04-2021 DateModified: 19-04-2021 Blog: https://www.powershellpr0mpt.com</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-PspAzVnetInfo</dev:code>
+        <dev:remarks>
+          <maml:para>VNetName ResourceGroupName AddressSpace Subnets                    VNetDnsServer -------- ----------------- ------------ -------                    ------------- MyVNET   PSP-Networking    10.2.0.0/16  default                    Azure Managed DNS VM-VNet  PSP-Networking    10.1.0.0/16  Backend;azurebastionsubnet Azure Managed DNS</maml:para>
+          <maml:para>Gets all Virtual Networks for the currently connected subscription and displays the default properties</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-PspAzVnetInfo | Format-List</dev:code>
+        <dev:remarks>
+          <maml:para>VnetName          : vnPSPWEUPRD ResourceGroupName : RG-PRD-PSP-NET AddressSpace      : 10.31.0.0/20 VnetDnsServer     : 10.31.4.4;10.31.4.5 DdosProtection    : Basic Subnets           : SNWEUPRDAppGateway;GatewaySubnet PeeringEnabled    : True Peerings          : vNetPeerToFortigate TagsAvailable     : False Tags              : env=demo;createdby=ARM Location          : westeurope Subscription      : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ResourceGuid      : 1a2b3c4d-1234-5678-9101-5e6f7g8h9i0k ReportDateTime    : 2021-04-19 13-37</maml:para>
+          <maml:para>Gets all Virtual Networks for the currently connected subscription and displays the full properties</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://www.powershellpr0mpt.com</maml:linkText>
+        <maml:uri>https://www.powershellpr0mpt.com</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
